@@ -29,9 +29,8 @@ function App() {
           
         </Route>
         <Route path={`/dashboard/payment/:appointmentId`}
-         element={ <Payment></Payment>}>
-           
-            </Route>
+         element={ <Payment></Payment>}> </Route>
+         
         <Route path={`/dashboard/makeAdmin`} element={<AdminRoute> <MakeAdmin></MakeAdmin></AdminRoute>}>
            
         </Route>

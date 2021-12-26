@@ -1,16 +1,16 @@
 import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import CheckoutForm from '../ChackOut/CheckoutForm';
 
-const stripePromise = loadStripe('pk_test_51JvTmwKKPIXU1Tgx8SiIyxMFYTIyOKZFEBJQhEUaFN444MPUgsn6zscUL43IVaWtVmJueXwhyPsNeThjc4Pu2RtN00ZO7uUvaI')
+const stripePromise = loadStripe('pk_test_51Jvt4LCMGyJ3AN2NffykJgmbxHheLR5TwIVvc598ZZQ8mcR5Ga8tCIiNW2MhgVdtoCYdYDnUSYp9QXM6U4L0fvHL00i8OCnYEs')
 
 const Payment = () => {
     const { appointmentId } = useParams();
     const [appointment, setAppointment] = useState({});
     useEffect(()=>{
-        fetch(`http://localhost:5000/appointments/${appointmentId}`)
+        fetch(`https://infinite-bayou-56639.herokuapp.com/appointments/${appointmentId}`)
         .then(res => res.json())
         .then(data => setAppointment(data));
 }, [appointmentId]);

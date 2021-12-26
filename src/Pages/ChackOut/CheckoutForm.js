@@ -5,22 +5,22 @@ import useAuth from '../../hooks/useAuth';
 
 
 const CheckoutForm = ({appintment}) => {
-  const {price, patientName, _id}=appintment;
-  const [error, setError] = useState('');
 const stripe = useStripe();
 const elements = useElements();
-const [clientSecret, setClientSecret] = useState('');
-const {user} = useAuth();
-const [success, setSuccess] = useState('');
-const [processing, setProcessing] = useState(false);
+const { price, patientName, _id } = appintment;
+const [ error, setError ] = useState('');
+const [ clientSecret, setClientSecret ] = useState('');
+const [ success, setSuccess ] = useState('');
+const [ processing, setProcessing ] = useState(false);
+const { user } = useAuth();
 
 useEffect(()=>{
-  fetch('http://localhost:5000/create/payment-intent', {
+  fetch('https://infinite-bayou-56639.herokuapp.com/create/payment-intent', {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
     },
-    bosy: JSON.stringify({price})
+    body: JSON.stringify({price})
   })
 .then(res=>res.json())
 .then(data=>setClientSecret(data.clientSecret))
@@ -29,22 +29,21 @@ useEffect(()=>{
       e.preventDefault();
 if(!stripe || !elements){
   return;
-}
+};
 const card = elements.getElement(CardElement);
 if(card === null){
   return;
-}
+};
 const {error, paymentMethod} = await stripe.createPaymentMethod({
   type: 'card',
   card
 });
 if(error){
-  setError(error.message)
+  setError(error.message);
 }
 else{
   setError('');
-  console.log(paymentMethod)
-}
+};
 
 const {paymentIntent, error: intentError} = await stripe.confirmCardPayment(
   clientSecret,
@@ -60,11 +59,10 @@ const {paymentIntent, error: intentError} = await stripe.confirmCardPayment(
 );
         if(intentError){
           setError(intentError.message);
-          setSuccess('')
+          setSuccess('');
         }
         else{
           setError('');
-console.log(paymentIntent);
 setSuccess('success your payment ');
 setProcessing(false);
 //save database
@@ -73,21 +71,21 @@ const payment ={
   created: paymentIntent.created,
   last4: paymentMethod.card.last4,
 
-  transction: paymentIntent.client_secret.slice('_secret')[0]
-}
-const url = `http://localhost:5000/appointments/${_id}`;
+  transaction: paymentIntent.client_secret.slice('_secret')[0]
+};
+const url = `https://infinite-bayou-56639.herokuapp.com/appointments/${_id}`;
 fetch(url, {
   method: 'PUT',
   headers:{
-    'content-type': 'applicaion/json'
+    'content-type': 'application/json'
   },
   body: JSON.stringify(payment)
 })
 .then(res=>res.json())
 .then(data => console.log(data))
-        }
+        };
 
-    }
+    };
     return (
         <div>
               <form onSubmit={handleSubmit}>

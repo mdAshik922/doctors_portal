@@ -16,7 +16,8 @@ const Register = () => {
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
         setLoginData(newLoginData);
-    }
+    };
+    
     const handleLoginSubmit = e => {
         if (loginData.password !== loginData.password2) {
             alert('Your password did not match');
@@ -24,7 +25,7 @@ const Register = () => {
         }
         registerUser(loginData.email, loginData.password, loginData.name, navigate);
         e.preventDefault();
-    }
+    };
     return (
         <Container>
             <Grid container spacing={2}>

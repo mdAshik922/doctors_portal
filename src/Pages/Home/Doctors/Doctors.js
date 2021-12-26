@@ -3,30 +3,28 @@ import React, { useEffect, useState } from 'react';
 import Doctor from '../Home/Doctor/Doctor';
 
 const Doctors = () => {
-    const [doctors, setDoctors]=useState();
-    useEffect(()=>{
-        fetch('http://localhost:5000/doctors')
+    const [doctors, setDoctors] = useState([]);
 
-        .then(res=>res.json())
-        .then(data=>setDoctors(data))
-    },[])
+    useEffect(() => {
+        fetch('https://infinite-bayou-56639.herokuapp.com/doctors')
+            .then(res => res.json())
+            .then(data => setDoctors(data))
+    }, [])
+
     return (
         <div>
-            <h2>Doctors:{doctors.length}</h2>
+            <h2>Our Doctors: {doctors.length}</h2>
             <Container>
-
-<Grid container spacing={2}>
-{
-    doctors.map(doctor =><Doctor
-    key={doctor._id}
-doctor={doctor}    
-    ></Doctor>)
-}
-</Grid>
-
+                <Grid container spacing={2}>
+                    {
+                        doctors.map(doctor => <Doctor
+                            key={doctor._id}
+                            doctor={doctor}
+                        ></Doctor>)
+                    }
+                </Grid>
             </Container>
         </div>
     );
 };
-
 export default Doctors;
