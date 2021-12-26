@@ -38,7 +38,7 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
-            <Link to="/appointment"><Button color="inherit"></Button></Link>
+            <Link to="/appointment"><Button color="inherit">Appointment</Button></Link>
             <Link to={`/dashboard`}><Button color="inherit">Dashboard</Button></Link>
             {admin && <Box>
                 <Link to={`/dashboard/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
