@@ -63,7 +63,7 @@ function Dashboard(props) {
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar
-                position=""
+                position="fixed"
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
