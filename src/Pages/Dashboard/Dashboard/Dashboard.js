@@ -36,7 +36,7 @@ function Dashboard(props) {
 
     const drawer = (
         <div>
-            <Toolbar />
+            < />
             <Divider />
             <Link to="/appointment"><Button color="inherit">Appointment</Button></Link>
             <Link to={`/dashboard`}><Button color="inherit">Dashboard</Button></Link>
