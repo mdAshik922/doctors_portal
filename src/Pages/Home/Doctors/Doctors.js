@@ -19,7 +19,7 @@ const Doctors = () => {
                     {
                         doctors.map(doctor => <Doctor
                             key={doctor._id}
-                            doctor={}
+                            doctor={doctor}
                         ></Doctor>)
                     }
                 </Grid>
