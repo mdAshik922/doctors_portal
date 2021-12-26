@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Doctor from '../Home/Doctor/Doctor';
 
 const Doctors = () => {
-    const [doctors, setDoctors] = ;
+    const [doctors, setDoctors] = useState([]);
 
     useEffect(() => {
         fetch('https://infinite-bayou-56639.herokuapp.com/doctors')
