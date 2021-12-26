@@ -8,7 +8,7 @@ const Doctors = () => {
     useEffect(() => {
         fetch('https://infinite-bayou-56639.herokuapp.com/doctors')
             .then(res => res.json())
-            .then(data => setDoctors(data))
+            .then(data => setDoctors())
     }, [])
 
     return (
