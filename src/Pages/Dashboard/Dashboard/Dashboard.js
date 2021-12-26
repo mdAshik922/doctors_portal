@@ -123,7 +123,7 @@ function Dashboard(props) {
 
              <Outlet>
                  
-         
+             </Outlet>
 
             </Box>
         </Box>
