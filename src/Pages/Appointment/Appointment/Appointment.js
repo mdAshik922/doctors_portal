@@ -5,6 +5,7 @@ import AvailableAppointments from '../AvailableAppointments/AvailableAppointment
 
 const Appointment = () => {
     const [ date, setDate ] = React.useState(new Date());
+    
     return (
         <div>
             <Navigation></Navigation>
