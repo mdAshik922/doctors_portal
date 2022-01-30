@@ -59,7 +59,7 @@ const BookingModal = ({ openBooking, handleBookingClose, booking, date, setBooki
             });
 
         e.preventDefault();
-    }
+    };
 
     return (
         <Modal
