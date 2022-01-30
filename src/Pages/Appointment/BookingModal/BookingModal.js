@@ -41,7 +41,7 @@ const BookingModal = ({ openBooking, handleBookingClose, booking, date, setBooki
             time,
             serviceName: name,
             date: date.toLocaleDateString()
-        }
+        };
         // send to the server
         fetch('https://infinite-bayou-56639.herokuapp.com/appointments', {
             method: 'POST',
