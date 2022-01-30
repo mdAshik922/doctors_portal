@@ -23,7 +23,7 @@ const style = {
 const BookingModal = ({ openBooking, handleBookingClose, booking, date, setBookingSuccess }) => {
     const { name, time } = booking || {};
     const { user } = useAuth();
-    const initialInfo = { patientName: user.displayName, email: user.email, phone: '' }
+    const initialInfo = { patientName: user.displayName, email: user.email, phone: '' };
     const [bookingInfo, setBookingInfo] = useState(initialInfo);
 
     const handleOnBlur = e => {
